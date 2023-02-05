@@ -1,0 +1,237 @@
+body {
+    background-color: lightgoldenrodyellow;
+    color: rgb(0, 0, 0);
+    overflow-x: hidden;
+    padding: 0 40px;
+}
+
+.head-line {
+    font-size: 3em;
+    margin-bottom: 10px;
+    border-bottom: black 4px dotted;
+}
+
+.book-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button {
+    color: whitesmoke;
+    border: 0;
+    border-radius: .2em;
+    background-color: #222;
+    padding: 6px 10px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 6px;
+    border-radius: 35%;
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+.btn-delete {
+    background-color: rgb(255, 0, 0);
+    border: #563131 solid 2px;
+}
+
+
+.btn-update {
+    background-color: rgb(213, 83, 3);
+    border: #401b05 solid 2px;
+}
+
+.btn-read {
+    background-color: rgb(24, 16, 140);
+    border: #100c51 solid 2px;
+}
+
+.books-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.books-container table {
+    background-color: darkgrey;
+    border: 4px solid black;
+    text-align: center;
+    width: 50vw;
+}
+
+.books-container table td {
+    background-color: lightcyan;
+    border: 2px solid rgb(235, 219, 219);
+    padding: 8px 3px;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.books-container table th {
+    background-color: rgb(5, 42, 42);
+    border: 2px solid black;
+    color: aliceblue;
+    padding: 3px;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.books-container .page-num {
+    width: 30px;
+    height: 20px;
+    text-align: center;
+}
+
+.cards-table-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 1fr 1fr 40px;
+    grid-template-areas:
+        "rate delete"
+        "name name"
+        "price price"
+        'read update'
+    ;
+
+    background-color: #fafaa9f2;
+    padding: 10px;
+    border-left: black solid 4px;
+    border-right: 15px solid #d9d982;
+    border-top: 12px solid #737322;
+    border-top-right-radius: 20px;
+    width: 150px;
+    margin: 0.5em;
+    text-align: center;
+}
+
+.book-preview .rate {
+    grid-area: rate;
+    justify-self: start;
+    font-size: 1.5em;
+}
+
+.book-preview h5 {
+    align-self: start;
+    grid-area: name;
+    font-size: 1.7em;
+    margin: 0px;
+}
+
+.book-preview h6 {
+    grid-area: price;
+    font-size: 1.2em;
+    margin: 25px 0px;
+
+}
+
+.book-preview h6 span {
+    color: rgb(4, 138, 4);
+}
+
+.book-preview .btn-delete {
+    grid-area: delete;
+    align-self: start;
+    background-color: rgb(255, 0, 0);
+    border: #563131 solid 2px;
+}
+
+.book-preview .btn-update {
+    grid-area: update;
+    background-color: rgb(213, 83, 3);
+    border: #401b05 solid 2px;
+}
+
+.book-preview .btn-read {
+    grid-area: read;
+    background-color: rgb(24, 16, 140);
+    border: #100c51 solid 2px;
+}
+
+.book-filter input {
+    width: 100px;
+    text-align: center;
+}
+
+.modal {
+    background-color: #fafaa9f2;
+    padding: 10px;
+    border-right: 30px solid #d9d982;
+    border-top: 20px solid #737322;
+    border-top-right-radius: 20px;
+    position: absolute;
+    top: 0px;
+    left: 150%;
+    height: 80vh;
+    min-width: 300px;
+    text-align: center;
+}
+
+.modal.open {
+    left: 50%;
+    transition: left .5s;
+}
+
+.modal h3 {
+    color: rgb(48, 2, 9);
+    font-size: 3em;
+    text-decoration: overline;
+    text-transform: capitalize;
+}
+
+.modal h4 {
+   font-size: 1.6em;
+}
+
+.modal h4 span {
+    color: rgb(63, 148, 3);
+}
+
+.modal input {
+    width: 80px;
+    text-align: center;
+}
+
+.btn-cards {
+    background-color: #fafaab;
+    color: black;
+    border: #d9d982 solid;
+}
+
+.btn-table {
+    background-color: #e0ffff;
+    color: black;
+    border: #052a2a solid;
+}
+
+.add-book-modal {
+    position: absolute;
+    top: -600px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fafaab;
+    border: solid 4px #737322;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.add-book-modal h3{
+    font-size: 1.7em;
+}
+
+.add-book-modal.open {
+    top: 50%;
+    transition: top .5s;
+}

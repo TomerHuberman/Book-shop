@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>book shop</title>
+</head>
+
+<body onload="onInit()">
+    <section class="book-filter">
+        <h1 class="head-line">Book Shop</h1>
+        <h2>Filter</h2>
+        <input type="number" class="filter-max-price" name="max-price" step="10" min="0" max="1000"
+            placeholder="By max price" oninput="onSetFilterBy({maxPrice: +this.value})">
+        <!-- <input type="number" class="filter-min-rate" name="min-rate" min="0" max="10" placeholder="By min rate"
+            oninput="onSetFilterBy({minRate: +this.value})"> -->
+        <input type="text" class="filter-name" name="name" placeholder="By name"
+            oninput="onSetFilterBy({name: this.value})">
+        <label for="rate"> By min rate:
+            <select class="filter-min-rate" onchange="onSetFilterBy({minRate: +this.value})" name="rate">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select></label>
+        <hr />
+        <button onclick="onOpenAddBookModal()">Add a new book to the list</button>
+    </section>
+    <section class="books-container">
+        <label for="paging">
+            <button class="btn-cards" onclick="isTable(false)">Cards</button>
+            <button class="btn-table" onclick="isTable(true)">Table</button>
+            <button onclick="onPaging(-1)">Prev</button>
+            <button onclick="onPaging(1)">Next</button>
+            <span>page: <input onchange="onSetPage(this.value)" class="page-num" type="text" name="page-num"> out of:
+                <span class="max-page"></span> </span>
+        </label>
+        <section class="cards-table-container">
+            <!-- The info is here -->
+        </section>
+
+    </section>
+
+    <div class="modal">
+        <h3></h3>
+        <h4>Book price: $<span></span> </h4>
+        <h4>Rate the book</h4>
+        <select onchange="onSetRate(this.value)" name="rate">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+        </select>
+        <button onclick="onCloseModal()">Close</button>
+    </div>
+    <form class="add-book-modal">
+        <h3>Add new book</h3>
+        <label for="new-book-name"> What is the name of the book? </label>
+        <input name="new-book-name" id="new-book-name" type="text" placeholder="Enter name here" required>
+        <label for="new-book-price"> What is the price of the book?</label>
+        <input name="new-book-price" id="new-book-price" type="text" placeholder="Enter price here" required>
+        <label for="new-book-rate"> What is the rate of the book?</label>
+        <select name="rate" id="new-book-rate">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+        </select>
+        <input class="btn-submit" onclick="onAddBook(event)" type="submit" value="Add Book">
+    </form>
+
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
+</body>
+
+</html>
